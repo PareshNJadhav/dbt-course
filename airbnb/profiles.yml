@@ -1,19 +1,20 @@
-outputs:
-    dev:
-      type: snowflake
-      account: BTJKIEM-WR71554
-      user: dbt
-      role: DBT_DEV_ROLE
-      database:  DEV_ANALYTICS
-      schema: DEV
-      threads: 4
-      warehouse:  DEV_DBT_WH
-    qa:
-      type: snowflake
-      account: BTJKIEM-WR71554
-      user: dbt
-      role: DBT_DEV_ROLE
-      database:  QA_ANALYTICS
-      schema: QA
-      threads: 4
-      warehouse:  DEV_DBT_WH
+airbnb:
+    outputs:
+        dev:
+          type: snowflake
+          account: BTJKIEM-WR71554
+          user: dbt
+          role: DBT_DEV_ROLE
+          database:  DEV_ANALYTICS
+          schema: DEV
+          threads: 4
+          warehouse:  DEV_DBT_WH
+        qa:
+          type: snowflake
+          account: BTJKIEM-WR71554
+          user: dbt
+          role: DBT_DEV_ROLE
+          database:  QA_ANALYTICS
+          schema: QA
+          threads: 4
+          warehouse:  DEV_DBT_WH
