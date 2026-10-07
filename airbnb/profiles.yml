@@ -18,3 +18,4 @@ airbnb:
           schema: QA
           threads: 4
           warehouse:  DEV_DBT_WH
+      target: dev
