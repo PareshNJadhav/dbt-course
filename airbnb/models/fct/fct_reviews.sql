@@ -1,7 +1,8 @@
 {{
   config(
     materialized = 'incremental',
-    on_schema_change='fail'
+    on_schema_change='fail',
+    event_time = 'review_date'
     )
 }}
 WITH src_reviews AS (
@@ -15,9 +16,9 @@ WHERE review_text is not null
 
 {# if is_incremental() #}
   --AND review_date > (select max(review_date) from {{ this }})
-{# endif %}
+{# endif #}
 
-{% if is_incremental() #}
+{% if is_incremental() %}
   {% if var("start_date", False) and var("end_date", False) %}
     {{ log('Loading ' ~ this ~ ' incrementally (start_date: ' ~ var("start_date") ~ ', end_date: ' ~ var("end_date") ~ ')', info=True) }}
     AND review_date >= '{{ var("start_date") }}'
